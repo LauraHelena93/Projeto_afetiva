@@ -40,6 +40,7 @@ O layout foi planejado para transmitir uma sensação de conforto e afeto, utili
 
 Se quiser rodar este projeto na sua máquina:
 
-1. Clone este repositório:
-```bash
-   git clone [https://github.com/LauraHelena93/Afetiva_Paes_Doces.git](https://github.com/LauraHelena93/Afetiva_Paes_Doces.git)
+ Afetiva Pães e Doces — Website Institucional
+
+[![Link do Site](https://img.shields.io/badge/Acesse%20o%20Site-Clique%20Aqui-brown?style=for-the-badge&logo=github)](https://laurahelena93.github.io)
+
