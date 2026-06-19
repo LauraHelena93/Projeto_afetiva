@@ -11,25 +11,32 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧁</text></svg>">
 
     <style>
-    /* 2. ADAPTAÇÃO: QUANDO ENTRAR PELO CELULAR */
-    /* Se a tela do aparelho for MENOR ou igual a 768px (Celulares) */
-        @media (max-width: 768px) {
-            .grid-container {/* Destrói as 4 colunas e transforma em apenas 1 coluna vertical */
-                grid-template-columns: 1fr; /* Reorganiza as áreas para ficarem uma embaixo da outra */
-                grid-template-areas: 
+        /* 14 */ /* Adaptação: QUANDO ENTRAR PELO CELULAR */
+        /* 15 */ /* Se a tela do aparelho for MENOR ou igual a 768px (Celulares) */
+         @media (max-width: 768px) {
+        .grid-container {
+           grid-template-columns: 1fr;
+           grid-template-areas:
                 "header"
                 "nav"
                 "main"
                 "sidebar"
                 "footer";
-                gap: 10px;
-                padding: 10px;
-            }   
-            .main {
-            text-align: center; /* Centraliza o texto para melhorar a leitura no celular */
-            }
-            .sidebar {
-            display: none; /* Esconde a barra lateral no celular para otimizar o espaço */
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .main {
+            text-align: center;
+        }
+    
+        .sidebar {
+            display: none;
+        }
+           
+        .galeria-container {
+            grid-template-columns: 1fr; /* Força as fotos a ficarem em uma única coluna vertical no celular */
+            padding: 10px;
             }
         }
         body {
