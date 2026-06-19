@@ -42,5 +42,5 @@ Se quiser rodar este projeto na sua máquina:
 
  Afetiva Pães e Doces — Website Institucional
 
-[![Link do Site](https://img.shields.io/badge/Acesse%20o%20Site-Clique%20Aqui-brown?style=for-the-badge&logo=github)](https://laurahelena93.github.io)
+[![Link do Site](https://img.shields.io/badge/Acesse%20o%20Site-Clique%20Aqui-brown?style=for-the-badge&logo=github)](https://laurahelena93.github.io/Projeto_afetiva)
 
