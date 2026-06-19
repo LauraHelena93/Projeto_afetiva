@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Afetiva Pães e Doces</title>
+    <!-- Código para substituir o globo pelo emoji de Cupcake -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧁</text></svg>">
+
+    <style>
+    /* 2. ADAPTAÇÃO: QUANDO ENTRAR PELO CELULAR */
+    /* Se a tela do aparelho for MENOR ou igual a 768px (Celulares) */
+        @media (max-width: 768px) {
+            .grid-container {/* Destrói as 4 colunas e transforma em apenas 1 coluna vertical */
+                grid-template-columns: 1fr; /* Reorganiza as áreas para ficarem uma embaixo da outra */
+                grid-template-areas: 
+                "header"
+                "nav"
+                "main"
+                "sidebar"
+                "footer";
+                gap: 10px;
+                padding: 10px;
+            }   
+            .main {
+            text-align: center; /* Centraliza o texto para melhorar a leitura no celular */
+            }
+            .sidebar {
+            display: none; /* Esconde a barra lateral no celular para otimizar o espaço */
+            }
+        }
+        body {
+            font-family: 'segoe ui', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FBF4EB;
+            color: #4A2F1B;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+          
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #D99498;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative; /* Ativa o controle de camadas */
+            z-index: 999;       /* Número alto garante que ele fica na FRENTE da barra lateral */
+            width: 100%;
+
+        
+        }
+        #barra-menu-horizontal {
+            background-color: #EAAFB2;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100% !important;
+            padding: 10px 0;
+            margin-top: 30px;
+            border-radius: 10px;
+
+
+        }
+        #barra-menu-horizontal a {
+            background-color: #FBF4EB;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: #4A2F1B;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+        
+        #historia {
+            background-color: #FCE8E6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin:auto;
+            margin-top: 50px;
+        }
+        #produtos {
+            background-color: #FBF4EB;
+            padding: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            margin-top: 50px;
+        }
+        #galeria{
+            background-color: #FCE8E6;
+            padding: 20px 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            margin-top: 50px;
+        
+        }
+        .galeria-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 16px; 
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+            cursor: pointer;
+        }
+        .galeria-container img:hover {
+        /* 3. Aumenta o tamanho da imagem em 5% */
+         transform: scale(1.05); 
+    
+        /* 4. Adiciona a sombra suave e esfumaçada (com um tom marrom idêntico ao do exemplo) */
+         box-shadow: 0 15px 30px rgba(114, 82, 53, 0.4); 
+         
+        }
+        
+
+
+        #contato {
+            background-color: #FCE8E6;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            margin-top: 20px;
+        }
+        
+        .divisor-linha-pontilhada {
+        margin-bottom: 0;
+        margin-top: 0;
+        border-bottom: 3px dashed #EAAFB2; 
+        }
+        .mySlides{
+        display:none;
+        margin:0 auto;
+        width: 600px;
+        height: 800px;
+        }
+
+        .produto-slide{
+        display: flex;
+        width: 600px;
+        height: 800px;
+        object-fit:cover;
+        border-radius:10px;
+        margin:0 auto;
+        }
+
+        button{
+        margin:10px;
+        padding:10px 15px;
+        cursor:pointer;
+        background-color:#EAAFB2;
+        color:#4A2F1B;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="w3-row barra-topo-grudada">
+        <p class="divisor-linha-pontilhada"></p>
+    </div>
+    <div class="w3-container w3-center">
+        <div class="w3-bar barra-menu-horizontal" id="barra-menu-horizontal">
+            <!-- HOME --> 
+            <a href="#home" class="w3-bar-item w3-button w3-col s4 botao-custom w3-hover"> 
+            <i class="fa fa-home w3-xlarge"></i> 
+            <p>HOME</p>
+            </a> 
+            <!-- HISTÓRIA --> 
+            <a href="#historia" class="w3-bar-item w3-button w3-col s4 botao-custom w3-hover"> 
+            <i class="fa fa-history w3-xlarge"></i> 
+            <p>HISTÓRIA</p>
+            </a> 
+            <!-- PRODUTOS --> 
+            <a href="#produtos" class="w3-bar-item w3-button w3-col s4 botao-custom w3-hover"> 
+            <i class="fa fa-cutlery w3-xlarge"></i> 
+            <p>PRODUTOS</p>
+            </a> 
+            <!-- GALERIA --> 
+            <a href="#galeria" class="w3-bar-item w3-button w3-col s4 botao-custom w3-hover"> 
+            <i class="fa fa-camera w3-xlarge"></i> 
+            <p>GALERIA</p>
+            </a> 
+            <!-- CONTATO --> 
+            <a href="#contato" class="w3-bar-item w3-button w3-col s4 botao-custom w3-hover "> 
+            <i class="fa fa-envelope w3-xlarge"></i> 
+            <p>CONTATO</p> 
+            </a>
+        </div> 
+    </div>
+    <div class="w3-row">
+    <header class="w3-col m4 l6 coluna-esquerda-w3" id="home">  
+            <br>
+            <img src="imagens/logo.jpeg" alt="Logo da Afetiva Pães e Doces" style="width: 300px; height: auto; border-radius: 50%; margin: 0 auto; display: block; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">  
+            <br> 
+            <h1 class="w3-serif" style="font-weight: bold; font-size: 30px; color: #4A2F1B; text-align: center; letter-spacing: 1px;">Afetiva Pães e Doces</h1>
+            <div class="w3-container w3-center" style="display: flex; align-items: center; justify-content: center; margin: 20px 0;"> <!-- Linha divisória -->
+                <div style="flex: 0 1 100px; border-bottom: 1px solid #D99498;"></div>
+                    <span style="padding: 0 15px; font-size: 24px;">🧁</span>
+                <div style="flex: 0 1 100px; border-bottom: 1px solid #D99498;"></div>
+            </div>
+            <p class="w3-xlarge w3-serif" style="font-weight: light; text-align: center; color: #4A2F1B; letter-spacing: 0.5px;">Sabores que abraçam ♡</p>
+    </header>
+    <main class="w3-col m8 l6 coluna-direita-w3 w3-container">
+
+        <section class="w3-left" id="historia">
+            <h2 class="w3-serif" style="font-weight: bold; font-size: 30px; color: #4A2F1B; text-align: center;">Nossa História ♡</h2>
+            <p>Você já reparou como um aroma ou um sabor conseguem te levar direto para um momento feliz do passado?</p>
+            <p>A Afetiva Pães e Doces nasceu exatamente dessa magia.</p>
+            <p>Nosso propósito vai muito além de produzir doces e pães impecáveis; nós produzimos sentimentos.<br> Queremos resgatar a doçura da infância, aquela sensação de tempo sem pressa e o afeto que transborda nos pequenos detalhes.</p>
+            <p>Cada fornada de pães, cada doce enrolado à mão e cada detalhe do nosso trabalho carrega o respeito pela tradição e o desejo de criar uma nova memória afetiva na sua vida.</p>
+            <p>Porque o ingrediente que realmente faz a diferença não se compra no mercado: é o amor que colocamos em cada pedaço."</p>
+        </section>
+    </div>
+    <div class="w3-row">
+        <section class="w3-center" id="produtos">
+            <br>
+            <h2 class="w3-serif" style="font-weight: bold; font-size: 30px; color: #4A2F1B; text-align: center;">Nossos Produtos ♡</h2>
+            <br>
+            <div class="w3-row-padding">
+                <div class="w3-center">    
+                        <div class="mySlides w3-container">
+                            <img src="imagens/caseiro.png" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/recheado.png" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/doces.jpeg" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/sobremesa.png" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/paes.png" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/cento.png" style="width:100%">
+                        </div>
+                        <div class="mySlides w3-container">
+                            <img src="imagens/festa.png" style="width:100%">
+                        </div>
+                    <!-- Botão de Voltar (Esquerda) -->
+                    <button class="w3-button" onclick="plusDivs(-1)">&#10094;</button>
+                    <!-- Botão de Avançar (Direita) -->
+                    <button class="w3-button" onclick="plusDivs(1)">&#10095;</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="w3-center" id="galeria">
+            <h2 class="w3-serif" style="font-weight: bold; font-size: 30px; color: #4A2F1B; text-align: center;">Nossa Galeria ♡</h2>
+            <div class="galeria-container w3-card">
+                <img src="imagens/rustico.jpg" alt="Pão Rústico" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+                <img src="imagens/bolo.png" alt="Bolo Recheado Morango" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+                <img src="imagens/cones.png" alt="Cones Trufados" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+                <img src="imagens/panetone.png" alt="Panetone Artesanal Trufado" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+                <img src="imagens/nutella.png" alt="Coxinha de Ninho com Morango e Nutella" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+                <img src="imagens/caseir.png" alt="Pão Caseiro" style="width: 300px; height:400px; object-fit: cover; margin: 0 auto; border-radius: 20px;">
+            </div>
+        </section>
+      
+        <section class="w3-center" id="contato">
+            <h2 class="w3-serif" style="font-weight: bold; font-size: 30px; color: #4A2F1B; text-align: center;">Nossos Contatos ♡</h2>
+            <p class="subtitulo-contatos">Ficou com vontade? Entre em contato e fale conosco!</p>
+            <br>
+            <a href="https://www.instagram.com/afetivapaes.doces/" target="_blank" style="text-decoration: none; color: inherit;"> 
+                <i class="fa fa-instagram fa-fw w3-text-pink w3-margin- right; font-weight: bold; w3-xxlarge"></i>Siga nosso Instagram!
+            </a>
+            <a href="https://api.whatsapp.com/send/?phone=5515996679297&text&type=phone_number&app_absent=0&utm_source=ig" target="_blank" style="text-decoration: none; color: inherit;"> 
+                <i class="fa fa-whatsapp fa-fw w3-text-green w3-margin-right; font-weight: bold; w3-xxlarge"></i>Encomende pelo WhatsApp
+            </a>
+        </section>
+    </main>
+    </div>
+    <footer>
+        <p>&copy; 2024 Afetiva Pães e Doces. Todos os direitos reservados.</p>  
+    </footer>
+    <script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+    showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    if (n > x.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = x.length}
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    x[slideIndex-1].style.display = "block";  
+    }
+    </script>
+
+</body>
+</html>
+</body>
+</html>
