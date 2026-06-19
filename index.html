@@ -15,30 +15,31 @@
         /* 15 */ /* Se a tela do aparelho for MENOR ou igual a 768px (Celulares) */
          @media (max-width: 768px) {
         .grid-container {
-           grid-template-columns: 1fr;
+           grid-template-columns: 1fr !important;
            grid-template-areas:
                 "header"
                 "nav"
                 "main"
                 "sidebar"
-                "footer";
-            gap: 10px;
-            padding: 10px;
+                "footer" !important;
+            gap: 10px !important;
+            padding: 10px !important;
         }
 
         .main {
-            text-align: center;
+            text-align: center !important;
         }
     
         .sidebar {
-            display: none;
+            display: none !important;
         }
            
         .galeria-container {
-            grid-template-columns: 1fr; /* Força as fotos a ficarem em uma única coluna vertical no celular */
-            padding: 10px;
+            grid-template-columns: 1fr !important; /* Força as fotos a ficarem em uma única coluna vertical no celular */
+            padding: 10px !important;
             }
         }
+        
         body {
             font-family: 'segoe ui', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #FBF4EB;
