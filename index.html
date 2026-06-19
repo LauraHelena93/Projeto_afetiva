@@ -12,7 +12,7 @@
 
     <style>
         @media (max-width: 768px) {
-        #barra-menu-horizontal {
+            #barra-menu-horizontal {
             display: flex !important;
             flex-wrap: wrap !important; /* Permite que os botões quebrem para a linha de baixo */
             justify-content: center !important;
@@ -21,37 +21,37 @@
             margin: 10px auto !important;
             padding: 5px !important;
             height: auto !important; /* Libera a altura fixa */
-        }
+            }
 
-        #barra-menu-horizontal a {
+            #barra-menu-horizontal a {
             width: auto !important; /* Impede que o botão herde larguras fixas de colunas */
             padding: 8px 10px !important; /* Diminui o preenchimento para caberem lado a lado */
             font-size: 13px !important; /* Diminui um pouco o texto para o celular */
             margin: 4px !important; /* Dá um espacinho entre eles ao quebrar linha */
-        }
+            }
 
 
     /* ==================== AJUSTE DO CARDÁPIO (PRODUTOS) ==================== */
     /* Isso controla o container dos slides que estava travado em 600px */
-        .mySlides {
+            .mySlides {
             width: 100% !important;
             max-width: 100% !important;
             height: auto !important;
             padding: 0 10px !important;
             box-sizing: border-box !important;
-        }
+            }
 
     /* Isso controla a imagem interna do cardápio (o paninho xadrez com os textos) */
-        .produto-slide {
+            .produto-slide {
             width: 100% !important;
             max-width: 100% !important;
             height: auto !important; /* Impede que a imagem fique esticada ou achatada */
             object-fit: contain !important; /* Garante que o cardápio apareça inteiro sem cortes */
-        }
+            }
         
-        .grid-container {
-           grid-template-columns: 1fr !important;
-           grid-template-areas:
+            .grid-container {
+            grid-template-columns: 1fr !important;
+            grid-template-areas:
                 "header"
                 "nav"
                 "main"
@@ -59,17 +59,17 @@
                 "footer" !important;
             gap: 10px !important;
             padding: 10px !important;
-        }
+            }
 
-        .main {
+            .main {
             text-align: center !important;
-        }
+            }
     
-        .sidebar {
+            .sidebar {
             display: none !important;
-        }
+            }
            
-        .galeria-container {
+            .galeria-container {
             grid-template-columns: 1fr !important; /* Força as fotos a ficarem em uma única coluna vertical no celular */
             padding: 10px !important;
             }
